@@ -1,0 +1,223 @@
+/* ============================================
+   主内容区 Main
+   ============================================ */
+
+
+/* 横幅容器（白底） */
+.contents {
+    background-color: white;
+}
+
+/* --- iPhone 区块 --- */
+.image-container .iphone {
+    height: 660px;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.iphone {
+    height: 90%;
+    min-height: 100%;
+    background-image: url(/Home-img/iPhone.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.iphone .title {
+    text-align: center;
+    padding-top: 40px;   /* 把标题从顶部推下来 */
+    line-height: 1.2;    /* 调回正常值，但紧凑 */
+}
+
+.iphone .title h1 {
+    font-size: 80px;
+    color: black;
+    font-weight: 700;
+    margin: 0;           /* 去掉默认上下边距 */
+}
+
+.iphone .title p {
+    font-size: 30px;
+    font-weight: normal;
+    color: black;
+    margin: 4px 0;       /* 极小间距，保持紧凑 */
+}
+
+/* --- MacBook Air 区块（整体天蓝渐变 + 图片浮层） --- */
+.macbook-block {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, #4A90D9,#eff1f2);
+}
+
+.macbook-text {
+    padding: 60px 20px 40px;
+    text-align: center;
+    background: transparent;
+}
+
+.macbook-text h1 {
+    font-size: 80px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.897);
+    margin: 0 0 10px 0;
+}
+
+.macbook-text p {
+    font-size: 30px;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.87);
+    margin: 0 0 20px 0;
+}
+
+.macbook-image {
+    height: 400px;
+    background-image: url(/Home-img/apple-macair.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* ---------------- 2.2 按钮组件（液态玻璃 Liquid Glass） ---------------- */
+
+/* 按钮组容器：横向居中排列 */
+.cta-links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 玻璃按钮通用样式 */
+.buy-link,
+.learn-more-link {
+    display: inline-block;
+    padding: 10px 22px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #1d1d1f;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+    transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+/* 购买按钮：叠加一点苹果蓝玻璃色调 */
+.buy-link {
+    background: rgba(0, 113, 227, 0.15);
+    border-color: rgba(0, 113, 227, 0.4);
+}
+
+/* 悬停：玻璃变亮、轻微浮起 */
+.buy-link:hover,
+.learn-more-link:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+.buy-link:hover {
+    background: rgba(0, 113, 227, 0.3);
+}
+
+.learn-more-link:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* 深色卡片上：文字切换为白色 */
+.theme-dark .buy-link,
+.theme-dark .learn-more-link {
+    color: #fff;
+}
+
+
+/* ---------------- 2.3 产品卡片网格（Product Cards） ---------------- */
+
+/* 列表基础样式（仅限产品卡片网格 .flex-list）。
+   之前用裸 ul / li 选择器，会打到全站所有 <li>（比如产品页的规格胶囊），
+   所以统一收进 .flex-list 作用域，只对首页产品卡生效 */
+.flex-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.flex-list li {
+    color: white;
+    height: 770px;
+    margin-bottom: 5px;
+}
+
+/* 网格布局：两列、自动换行 */
+.flex-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-list li {
+    flex: auto;
+    width: 50%;
+}
+
+/* 卡片图片通用样式 */
+.img {
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* 卡片标题间距 */
+.headline {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* 防止卡片内容溢出 */
+.content {
+    overflow: hidden;
+}
+
+/* 深色主题卡片（黑底） */
+.theme-dark {
+    background-color: #000;
+    margin: 0 auto;
+}
+
+/* 浅色主题卡片（白底） */
+.theme-light {
+    background-color: #fbfbfd;
+    margin: 0 auto;
+    color: #1D1D1F;
+}
+
+/* 卡片主体容器 */
+.container-main {
+    width: 98%;
+    height: 100%;
+}
+
+/* 卡片内图片撑满宽度 */
+.flex-list li img {
+    width: 100%;
+}
+
+/* 卡片图片悬停放大动画 */
+.unit-image figure img {
+    transition: transform .2s;
+}
+
+.unit-image figure img:hover {
+    transform: scale(1.05);
+}
+
+/* Apple Watch 标志尺寸 */
+.apple-watch-logo {
+    width: 25%;
+}
+
+

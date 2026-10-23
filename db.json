@@ -1,0 +1,779 @@
+{
+  "mac": {
+    "showcase": [
+      {
+        "name": "MacBook Pro",
+        "img": "/MacBook-img/MacBookpro.png"
+      },
+      {
+        "name": "MacBook Air",
+        "img": "/MacBook-img/macair.png"
+      },
+      {
+        "name": "MacBook",
+        "img": "/MacBook-img/macneo.png"
+      },
+      {
+        "name": "iMac",
+        "img": "/MacBook-img/iMac.png"
+      },
+      {
+        "name": "Mac mini",
+        "img": "/MacBook-img/macmini.png"
+      },
+      {
+        "name": "Mac Studio",
+        "img": "/MacBook-img/macstudio.png"
+      },
+      {
+        "name": "Studio Display",
+        "img": "/MacBook-img/display.png"
+      },
+      {
+        "name": "Mac 配件",
+        "img": "/MacBook-img/accessories.png"
+      }
+    ],
+    "categories": [
+      {
+        "id": "laptop",
+        "label": "笔记本电脑",
+        "cards": [
+          {
+            "name": "MacBook",
+            "tag": "轻薄随行，超长续航。",
+            "desc": "全新 MacBook 以轻盈机身带来全天候续航，配备 M 系列芯片，性能与能效兼备，是学习与移动办公的可靠之选。",
+            "specs": [
+              "M 系列芯片",
+              "最长 15 小时续航",
+              "轻至 1.2 千克"
+            ],
+            "price": "¥7,999 起",
+            "img": "/MacBook-img/macneo.png"
+          },
+          {
+            "name": "MacBook Air",
+            "tag": "超薄超轻，性能出色。",
+            "desc": "由 M4 芯片强势驱动，超薄超轻的设计可以轻松放入任何背包，续航持久，满足你一整天的工作与创作。",
+            "specs": [
+              "M4 芯片",
+              "13.6 英寸显示屏",
+              "最长 18 小时续航"
+            ],
+            "price": "¥9,999 起",
+            "img": "/MacBook-img/macair.png"
+          },
+          {
+            "name": "MacBook Pro",
+            "tag": "专业实力，动力澎湃。",
+            "desc": "为专业创作者而生，搭载 Apple M5 Pro 芯片，统一内存与高速固态硬盘加持，剪辑、渲染与编译样样轻松。",
+            "specs": [
+              "M5 Pro 芯片",
+              "16 英寸 XDR 显示屏",
+              "最高 48GB 统一内存"
+            ],
+            "price": "¥12,999 起",
+            "img": "/MacBook-img/MacBookpro.png"
+          }
+        ]
+      },
+      {
+        "id": "desktop",
+        "label": "台式电脑",
+        "cards": [
+          {
+            "name": "iMac",
+            "tag": "色彩，点亮每一天。",
+            "desc": "24 英寸 4.5K 视网膜显示屏呈现鲜活画面，多彩机身与一体成型设计，开机即用，为桌面注入活力。",
+            "specs": [
+              "24 英寸 4.5K 显示屏",
+              "多彩机身",
+              "M4 芯片"
+            ],
+            "price": "¥10,999 起",
+            "img": "/MacBook-img/iMac.png"
+          },
+          {
+            "name": "Mac mini",
+            "tag": "小巧机身，强大内心。",
+            "desc": "机身仅手掌大小，性能却不容小觑，丰富的接口与强劲的 M4 芯片，无论创意工作还是日常娱乐都轻松胜任。",
+            "specs": [
+              "手掌大小机身",
+              "M4 芯片",
+              "丰富接口"
+            ],
+            "price": "¥3,999 起",
+            "img": "/MacBook-img/macmini.png"
+          },
+          {
+            "name": "Mac Studio",
+            "tag": "强大性能，极致专业。",
+            "desc": "为严苛工作负载打造，海量统一内存与强劲图形性能，让 3D 渲染、视频制作等高强度任务行云流水。",
+            "specs": [
+              "高性能芯片",
+              "最高 192GB 内存",
+              "专业级图形性能"
+            ],
+            "price": "¥15,999 起",
+            "img": "/MacBook-img/macstudio.png"
+          }
+        ]
+      },
+      {
+        "id": "display",
+        "label": "显示器",
+        "cards": [
+          {
+            "name": "Studio Display",
+            "tag": "震撼视界，专业本色。",
+            "desc": "27 英寸 5K 视网膜显示屏，600 尼特亮度与 P3 广色域还原每一帧真实色彩，内置六扬声器与高清摄像头。",
+            "specs": [
+              "27 英寸 5K 显示屏",
+              "P3 广色域",
+              "内置六扬声器"
+            ],
+            "price": "¥11,499 起",
+            "img": "/MacBook-img/display.png"
+          }
+        ]
+      },
+      {
+        "id": "accessories",
+        "label": "配件",
+        "cards": [
+          {
+            "name": "Mac 配件",
+            "tag": "为 Mac 精心打造。",
+            "desc": "从妙控键盘、妙控鼠标到各类扩展坞与连接线，专为 Mac 精心设计，让每一次输入与连接都更得心应手。",
+            "specs": [
+              "妙控系列",
+              "扩展与连接",
+              "Apple 官方设计"
+            ],
+            "price": "¥199 起",
+            "img": "/MacBook-img/accessories.png"
+          }
+        ]
+      }
+    ],
+    "utilities": [
+      {
+        "img": "/MacBook-img/ground.png",
+        "text": "学什么专业，Mac都专业"
+      },
+      {
+        "img": "/MacBook-img/desk.png",
+        "text": "做生意，Mac都是好帮手"
+      }
+    ]
+  },
+  "iphone": {
+    "showcase": [
+      {
+        "name": "iPhone 17 Pro",
+        "img": "/iPhone-img/iPhone-17pro.png"
+      },
+      {
+        "name": "iPhone 17",
+        "img": "/iPhone-img/iPhone-17.png"
+      },
+      {
+        "name": "iPhone 16",
+        "img": "/iPhone-img/iPhone-16.png"
+      },
+      {
+        "name": "iPhone 17e",
+        "img": "/iPhone-img/iPhone-17e.png"
+      },
+      {
+        "name": "iPhone Air",
+        "img": "/iPhone-img/iPhone- Air.png"
+      },
+      {
+        "name": "iPhone 配件",
+        "img": "/iPhone-img/accessories.png"
+      }
+    ],
+    "categories": [
+      {
+        "id": "phone",
+        "label": "机型",
+        "big": true,
+        "cards": [
+          {
+            "name": "iPhone 17 Pro",
+            "tag": "钛金属设计，专业级影像。",
+            "desc": "以航空级钛金属打造，搭载新一代 A 系列芯片与专业级三摄系统，ProMotion 自适应刷新率，为创作而生。",
+            "specs": [
+              "A19 Pro 芯片",
+              "6.9 英寸 ProMotion XDR",
+              "专业级三摄系统"
+            ],
+            "price": "¥9,999 起",
+            "img": "/iPhone-img/iPhone17pro.png"
+          },
+          {
+            "name": "iPhone 17",
+            "tag": "强大性能，轻巧随行。",
+            "desc": "融合 A 系列芯片强劲性能与超长续航，双摄系统随手拍出好片，是多数人的理想之选。",
+            "specs": [
+              "A19 芯片",
+              "6.1 英寸 OLED",
+              "双摄系统"
+            ],
+            "price": "¥6,999 起",
+            "img": "/iPhone-img/iPhone17.png"
+          },
+          {
+            "name": "iPhone 17e",
+            "tag": "经典设计，依旧出色。",
+            "desc": "均衡的性能与影像，轻薄的机身与出色的续航，让每一天都更得心应手。",
+            "specs": [
+              "A18 芯片",
+              "6.1 英寸显示屏",
+              "单摄系统"
+            ],
+            "price": "¥5,999 起",
+            "img": "/iPhone-img/iPhone17e.png"
+          }
+        ]
+      },
+      {
+        "id": "accessories",
+        "label": "配件",
+        "cards": [
+          {
+            "name": "MagSafe 充电器",
+            "tag": "磁吸贴合，随手即充。",
+            "desc": "磁吸式无线充电器，贴合即充，支持最高 15W 无线充电，充电更轻松。",
+            "specs": [
+              "磁吸无线充电",
+              "最高 15W",
+              "Apple 官方设计"
+            ],
+            "price": "¥329 起",
+            "img": "/iPhone-img/magsafe.png"
+          },
+          {
+            "name": "硅胶保护壳",
+            "tag": "轻盈贴合，手感出色。",
+            "desc": "采用液态硅胶材质，内衬柔软超细纤维，全方位呵护你的 iPhone。",
+            "specs": [
+              "液态硅胶",
+              "柔软内衬",
+              "多色可选"
+            ],
+            "price": "¥399 起",
+            "img": "/iPhone-img/iphonecase.png"
+          }
+        ]
+      }
+    ],
+    "utilities": [
+      {
+        "img": "/iPhone-img/AirTag.png",
+        "text": "iPhone配件"
+      },
+      {
+        "img": "/iPhone-img/配件.png",
+        "text": "AirTag"
+      }
+    ]
+  },
+  "ipad": {
+    "showcase": [
+      {
+        "name": "iPad Pro",
+        "img": "/iPad-img/ipadpro.png"
+      },
+      {
+        "name": "iPad Air",
+        "img": "/iPad-img/ipadair.png"
+      },
+      {
+        "name": "iPad",
+        "img": "/iPad-img/ipad.png"
+      },
+      {
+        "name": "iPad mini",
+        "img": "/iPad-img/ipadmini.png"
+      },
+      {
+        "name": "Apple Pencil Pro",
+        "img": "/iPad-img/pencil.png"
+      },
+      {
+        "name": "妙控键盘",
+        "img": "/iPad-img/keyboard.png"
+      },
+      {
+        "name": "iPad 配件",
+        "img": "/iPad-img/ipad-accessories.png"
+      }
+    ],
+    "categories": [
+      {
+        "id": "ipad",
+        "label": "机型",
+        "cards": [
+          {
+            "name": "iPad Pro",
+            "tag": "终极 iPad 体验。",
+            "desc": "搭载 M4 芯片与 Ultra Retina XDR 显示屏，超薄机身与 Apple Pencil Pro 悬停交互，为专业创作而生。",
+            "specs": [
+              "M4 芯片",
+              "13 英寸 Ultra Retina XDR",
+              "支持 Apple Pencil Pro"
+            ],
+            "price": "¥7,999 起",
+            "img": "/iPad-img/ipadpro.png"
+          },
+          {
+            "name": "iPad Air",
+            "tag": "轻巧强大，创作自如。",
+            "desc": "轻薄的机身搭载 M 系列芯片，Liquid Retina 显示屏色彩细腻，是学习与创作的均衡之选。",
+            "specs": [
+              "M3 芯片",
+              "11 英寸 Liquid Retina",
+              "双配色"
+            ],
+            "price": "¥4,999 起",
+            "img": "/iPad-img/ipadair.png"
+          },
+          {
+            "name": "iPad mini",
+            "tag": "小身材，大能量。",
+            "desc": "8.3 英寸小巧机身，单手即可掌控，强大的芯片性能让随身办公与娱乐都流畅自如。",
+            "specs": [
+              "A17 Pro 芯片",
+              "8.3 英寸显示屏",
+              "极致便携"
+            ],
+            "price": "¥3,999 起",
+            "img": "/iPad-img/ipadmini.png"
+          }
+        ]
+      },
+      {
+        "id": "accessories",
+        "label": "配件",
+        "cards": [
+          {
+            "name": "Apple Pencil Pro",
+            "tag": "创意的延伸。",
+            "desc": "悬浮笔尖精准落笔，侧按挤压呼出工具，触觉反馈让每一次书写都真实自然。",
+            "specs": [
+              "悬浮笔尖",
+              "侧按挤压",
+              "触觉反馈"
+            ],
+            "price": "¥999 起",
+            "img": "/iPad-img/pencil.png"
+          },
+          {
+            "name": "妙控键盘",
+            "tag": "悬浮打字体验。",
+            "desc": "剪刀式键盘手感舒适，配合内置触控板与悬浮式设计，让 iPad 变身强劲工作站。",
+            "specs": [
+              "剪刀式键盘",
+              "内置触控板",
+              "悬浮式设计"
+            ],
+            "price": "¥2,399 起",
+            "img": "/iPad-img/keyboard.png"
+          },
+          {
+            "name": "iPad 配件",
+            "tag": "为 iPad 精心打造。",
+            "desc": "从智能保护套到各类扩展配件，专为 iPad 设计，让每一次使用都更得心应手。",
+            "specs": [
+              "Apple 官方设计",
+              "保护与连接",
+              "多种选择"
+            ],
+            "price": "¥449 起",
+            "img": "/iPad-img/ipad-accessories.png"
+          }
+        ]
+      }
+    ],
+    "utilities": [
+      {
+        "img": "/iPad-img/draw.png",
+        "text": "灵感所至，尽情挥洒。"
+      },
+      {
+        "img": "/iPad-img/note.png",
+        "text": "轻巧随行，随时记录。"
+      }
+    ]
+  },
+  "watch": {
+    "showcase": [
+      {
+        "name": "Apple Watch Ultra",
+        "img": "/Watch-img/watchultra.png"
+      },
+      {
+        "name": "Apple Watch Series",
+        "img": "/Watch-img/watchseries.png"
+      },
+      {
+        "name": "Apple Watch SE",
+        "img": "/Watch-img/watchse.png"
+      },
+      {
+        "name": "运动表带",
+        "img": "/Watch-img/band-sport.png"
+      },
+      {
+        "name": "编织表带",
+        "img": "/Watch-img/band-nylon.png"
+      },
+      {
+        "name": "回环式运动表带",
+        "img": "/Watch-img/band-loop.png"
+      },
+      {
+        "name": "Watch 配件",
+        "img": "/Watch-img/watch-accessories.png"
+      }
+    ],
+    "categories": [
+      {
+        "id": "watch",
+        "label": "手表",
+        "cards": [
+          {
+            "name": "Apple Watch Ultra",
+            "tag": "专为探险而生。",
+            "desc": "坚固耐用的钛金属表壳，配合双频 GPS 与最长 36 小时续航，陪你征服每一次户外挑战。",
+            "specs": [
+              "钛金属表壳",
+              "最长 36 小时续航",
+              "双频 GPS"
+            ],
+            "price": "¥6,799 起",
+            "img": "/Watch-img/watchultra.png"
+          },
+          {
+            "name": "Apple Watch Series",
+            "tag": "健康与连接的典范。",
+            "desc": "全天候视网膜屏常亮显示，心率、血氧与睡眠监测一应俱全，健康管理尽在腕间。",
+            "specs": [
+              "全天候视网膜屏",
+              "心率与血氧监测",
+              "常亮显示屏"
+            ],
+            "price": "¥2,999 起",
+            "img": "/Watch-img/watchseries.png"
+          },
+          {
+            "name": "Apple Watch SE",
+            "tag": "入门首选，功能齐全。",
+            "desc": "运动追踪、跌倒检测与家人共享设置，以更亲民的价格带来完整的 Apple Watch 体验。",
+            "specs": [
+              "运动追踪",
+              "跌倒检测",
+              "高性价比"
+            ],
+            "price": "¥1,999 起",
+            "img": "/Watch-img/watchse.png"
+          }
+        ]
+      },
+      {
+        "id": "bands",
+        "label": "表带",
+        "cards": [
+          {
+            "name": "运动表带",
+            "tag": "运动场上，稳如磐石。",
+            "desc": "防汗防水的氟橡胶材质，贴合手腕不易松动，是日常训练的理想搭档。",
+            "specs": [
+              "防汗防水",
+              "轻盈透气",
+              "多种尺寸"
+            ],
+            "price": "¥379 起",
+            "img": "/Watch-img/band-sport.png"
+          },
+          {
+            "name": "编织表带",
+            "tag": "柔软贴合，气质出众。",
+            "desc": "细密编织工艺触感亲肤，可自由调节松紧，日常通勤与正式场合都相得益彰。",
+            "specs": [
+              "编织工艺",
+              "亲肤透气",
+              "多色可选"
+            ],
+            "price": "¥479 起",
+            "img": "/Watch-img/band-nylon.png"
+          },
+          {
+            "name": "回环式运动表带",
+            "tag": "快拆设计，随换随戴。",
+            "desc": "魔术贴固定方便单手调节，配合快拆表耳，一条表带演绎多种风格。",
+            "specs": [
+              "魔术贴固定",
+              "快拆表耳",
+              "透气耐磨"
+            ],
+            "price": "¥379 起",
+            "img": "/Watch-img/band-loop.png"
+          }
+        ]
+      }
+    ],
+    "utilities": [
+      {
+        "img": "/Watch-img/health.png",
+        "text": "健康数据，一目了然。"
+      },
+      {
+        "img": "/Watch-img/run.png",
+        "text": "每一圈，都是进步。"
+      }
+    ]
+  },
+  "store": {
+    "showcase": [
+      {
+        "id": "iphone",
+        "name": "iPhone",
+        "desc": "全新阵容，Pro 实力。",
+        "price": "¥5,999 起",
+        "installment": "或每月 ¥500 起",
+        "img": "/store-img/iPhone.png"
+      },
+      {
+        "id": "mac",
+        "name": "Mac",
+        "desc": "M 系列芯片，超强性能。",
+        "price": "¥7,999 起",
+        "installment": "或每月 ¥667 起",
+        "img": "/store-img/mac.png"
+      },
+      {
+        "id": "ipad",
+        "name": "iPad",
+        "desc": "让每一笔，都有创意。",
+        "price": "¥3,999 起",
+        "installment": "或每月 ¥333 起",
+        "img": "/store-img/iPad.png"
+      },
+      {
+        "id": "earpods",
+        "name": "EarPods",
+        "desc": "好音质，即刻入耳。",
+        "price": "¥999 起",
+        "installment": "或每月 ¥197 起",
+        "img": "/store-img/earpods.png"
+      }
+    ],
+    "spotlight": [
+      {
+        "id": "imac",
+        "name": "iMac",
+        "desc": "色彩，点亮每一天。",
+        "price": "¥10,999 起",
+        "installment": "或每月 ¥917 起",
+        "img": "/store-img/imac.png"
+      },
+      {
+        "id": "macmini",
+        "name": "Mac mini",
+        "desc": "小巧机身，强大内心。",
+        "price": "¥4,499 起",
+        "installment": "或每月 ¥375 起",
+        "img": "/store-img/Macmini.png"
+      },
+      {
+        "id": "macbook",
+        "name": "MacBook",
+        "desc": "轻薄随行，超长续航。",
+        "price": "¥12,999 起",
+        "installment": "或每月 ¥1,083 起",
+        "img": "/store-img/Macneo.png"
+      },
+      {
+        "id": "watch",
+        "name": "Apple Watch",
+        "desc": "健康，尽在腕间。",
+        "price": "¥2,999 起",
+        "installment": "或每月 ¥250 起",
+        "img": "/store-img/iwatch.png"
+      },
+      {
+        "id": "ipadmini",
+        "name": "iPad mini",
+        "desc": "一掌之间，随手写画。",
+        "price": "¥3,999 起",
+        "installment": "或每月 ¥333 起",
+        "img": "/store-img/iPadmini.png"
+      },
+      {
+        "id": "ipad11",
+        "name": "iPad",
+        "desc": "全面屏，全面能。",
+        "price": "¥3,499 起",
+        "installment": "或每月 ¥292 起",
+        "img": "/store-img/iPad11.png"
+      }
+    ]
+  },
+  "home": {
+    "products": [
+      {
+        "id": "watch",
+        "theme": "theme-dark",
+        "logo": "/Home-img/apple-watch-logo.png",
+        "logoStyle": {
+          "width": "25%"
+        },
+        "headline": "健康的未来，就在你的手腕上。",
+        "href": "/watch",
+        "buy": "https://www.apple.com/shop/buy-watch/apple-watch",
+        "image": "/Home-img/apple-watch-6.png"
+      },
+      {
+        "id": "ipad",
+        "theme": "theme-light",
+        "logo": "/Home-img/ipad-air-logo.png",
+        "logoStyle": {
+          "width": "25%"
+        },
+        "headline": "强力。多彩。精彩。",
+        "href": "/ipad",
+        "buy": "https://www.apple.com/ipad-air/",
+        "image": "/Home-img/ipad-air.png",
+        "imgStyle": {
+          "width": "70%"
+        }
+      },
+      {
+        "id": "macbook",
+        "theme": "theme-dark",
+        "logo": "/Home-img/macbook-air-logo.png",
+        "logoStyle": {
+          "width": "35%",
+          "marginTop": "55px"
+        },
+        "headline": "强大，如Air般轻巧。",
+        "href": "/mac",
+        "buy": "https://www.apple.com/macbook-air/",
+        "image": "/Home-img/macbook-air.png",
+        "imgStyle": {
+          "width": "100%",
+          "height": "100%"
+        }
+      },
+      {
+        "id": "apple-one",
+        "theme": "theme-light",
+        "logo": "/Home-img/apple-one-logo.png",
+        "logoStyle": {
+          "width": "30%",
+          "marginTop": "20px"
+        },
+        "headline": "打包最多六项 Apple 服务，花得更少，享得更多。",
+        "href": "/store",
+        "buy": "https://www.apple.com/apple-one/",
+        "image": "/Home-img/apple-one.png",
+        "imgStyle": {
+          "width": "80%"
+        }
+      },
+      {
+        "id": "apple-card",
+        "theme": "theme-light",
+        "logo": "/Home-img/apple-card-logo.png",
+        "logoStyle": {
+          "width": "20%",
+          "marginTop": "20px"
+        },
+        "headline": "使用 Apple Card 在 Apple 购物，可获 3% 每日返现",
+        "href": "/store",
+        "buy": "https://www.apple.com/apple-card/",
+        "image": "/Home-img/apple-card.png",
+        "imgStyle": {
+          "width": "80%"
+        }
+      },
+      {
+        "id": "tv",
+        "theme": "theme-dark",
+        "logo": "/Home-img/apple-tv-logo.png",
+        "logoStyle": {
+          "width": "15%",
+          "marginTop": "20px"
+        },
+        "headline": "伟大，无处可藏。",
+        "href": "/store",
+        "image": "/Home-img/dickinson-apple-tv.png",
+        "imgStyle": {
+          "width": "80%"
+        },
+        "ctaType": "tv"
+      }
+    ]
+  },
+  "users": [
+    {
+      "id": "1",
+      "username": "tom",
+      "password": "bf91df79a0c1db76d19817bf00d30631981b7d11bfb85a821e6527e62542c801"
+    },
+    {
+      "id": "2",
+      "username": "jane",
+      "password": "6ca13d52ca70c883e0f0bb101e425a89e8624de51db2d2392593af6a84118090"
+    },
+    {
+      "username": "tom1",
+      "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+      "id": "e7zHUmLc1CE"
+    }
+  ],
+  "orders": [
+    {
+      "username": "tom1",
+      "items": [
+        {
+          "name": "14 英寸 MacBook Pro (38,912 起)",
+          "price": "¥38,912",
+          "img": "/B-Mac-img/mac-14-1.png",
+          "specs": "14 英寸 MacBook Pro / M5 / 标准显示器 / 深空黑色",
+          "qty": 1,
+          "selected": true
+        },
+        {
+          "name": "14 英寸 MacBook Pro (38,912 起)",
+          "price": "¥38,912",
+          "img": "/B-Mac-img/mac-14-1.png",
+          "specs": "14 英寸 MacBook Pro / M5 Max / 标准显示器 / 深空黑色",
+          "qty": 1,
+          "selected": true
+        }
+      ],
+      "total": 77824,
+      "address": {
+        "name": "啦啦啦",
+        "phone": "12222222222",
+        "addr": "123123"
+      },
+      "status": "待处理",
+      "createdAt": "2026/8/29 00:43:40",
+      "id": "fCnCpQ9IQcg"
+    }
+  ],
+  "carts": [
+    {
+      "username": "tom1",
+      "items": [],
+      "id": "2GTMHpMRrQA"
+    }
+  ],
+  "favorites": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

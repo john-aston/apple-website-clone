@@ -1,0 +1,188 @@
+/* ============================================
+   Orders.css — 结算页 / 订单页共用
+   ============================================ */
+
+.flow-page {
+  max-width: 900px;
+  margin: 120px auto 80px;
+  padding: 0 2rem;
+}
+
+.flow-page h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin: 0 0 1.5rem;
+}
+
+/* 订单卡片 */
+.order-card {
+  border: 1px solid #e8e8ed;
+  border-radius: 16px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1.2rem;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* 订单号 / 时间 */
+.order-meta {
+  margin: 0 0 0.8rem;
+  font-size: 0.85rem;
+  color: #86868b;
+}
+
+/* 商品行：左名字右小计，两端对齐 */
+.order-list {
+  list-style: none;
+  margin: 0 0 0.8rem;
+  padding: 0;
+}
+
+.order-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  color: #1d1d1f;
+}
+
+/* 合计 */
+.order-total {
+  margin: 0;
+  padding-top: 0.8rem;
+  border-top: 1px solid #e8e8ed;
+  font-weight: 700;
+  color: #1d1d1f;
+}
+
+/* 黑色大按钮 */
+.flow-btn {
+  display: inline-block;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 14px;
+  background: #1d1d1f;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.flow-btn:hover {
+  opacity: 0.9;
+}
+
+.flow-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.flow-error {
+  color: #e03131;
+}
+
+.flow-muted {
+  color: #6e6e73;
+}
+
+.flow-link {
+  color: #06c;
+}
+
+/* 小节标题（结算页：收货信息 / 商品清单） */
+.flow-sec-title {
+  margin: 0 0 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+/* 结算表单 */
+.flow-label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-size: 0.85rem;
+  color: #6e6e73;
+}
+
+.flow-input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px 12px;
+  border: 1px solid #d2d2d7;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #1d1d1f;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.flow-input:focus {
+  outline: none;
+  border-color: #06c;
+}
+
+/* 订单状态徽章 */
+.order-status {
+  margin-left: 10px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #f5f5f7;
+  color: #6e6e73;
+}
+
+.order-status.st-待处理 {
+  background: #e8f0fe;
+  color: #06c;
+}
+
+.order-status.st-已取消 {
+  background: #fdeaea;
+  color: #e03131;
+}
+
+/* 订单上的收货信息摘要 */
+.order-addr {
+  margin: 0.6rem 0 0;
+  padding-top: 0.6rem;
+  border-top: 1px dashed #e8e8ed;
+  font-size: 0.82rem;
+  color: #86868b;
+}
+
+.order-addr-block {
+  margin: 0 0 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  background: #f5f5f7;
+}
+
+/* 订单操作按钮行 */
+.order-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* 小号按钮 / 幽灵按钮（取消订单） */
+.flow-btn-sm {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+.flow-btn-ghost {
+  background: #fff;
+  color: #e03131;
+  border: 1px solid #e03131;
+}
+
+.flow-btn-ghost:hover {
+  background: #fdeaea;
+  opacity: 1;
+}

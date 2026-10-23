@@ -1,0 +1,209 @@
+/* ============================================
+   Cart.css — 购物袋页
+   ============================================ */
+
+.cart-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 120px 2rem 80px;   /* 顶部留白避开固定导航栏 */
+}
+
+.cart-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin: 0 0 1.5rem;
+}
+
+/* 两栏：左商品列表 / 右摘要 */
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.cart-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* 单行商品 */
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #e8e8ed;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.cart-img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #f5f5f7;
+}
+
+.cart-info {
+  flex: 1;
+}
+
+.cart-info h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  color: #1d1d1f;
+}
+
+.cart-price {
+  font-size: 0.85rem;
+  color: #6e6e73;
+}
+
+/* 数量步进 */
+.cart-qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-qty button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #d2d2d7;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.cart-qty button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.cart-line-total {
+  font-weight: 600;
+  min-width: 70px;
+  text-align: right;
+  color: #1d1d1f;
+}
+
+.cart-remove {
+  border: none;
+  background: none;
+  color: #06c;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.cart-remove:hover {
+  text-decoration: underline;
+}
+
+/* 右侧摘要卡 */
+.cart-summary {
+  position: sticky;
+  top: 80px;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #e8e8ed;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.cart-summary h3 {
+  margin: 0 0 1rem;
+  color: #1d1d1f;
+}
+
+.cart-sum-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.cart-sum-row span {
+  color: #6e6e73;
+}
+
+/* 黑色大按钮（空购物车引导、去结算共用） */
+.cart-cta-btn {
+  display: block;
+  text-align: center;
+  padding: 12px 22px;
+  border-radius: 14px;
+  background: #1d1d1f;
+  color: #fff;
+  font-weight: 600;
+  transition: opacity 0.25s ease;
+}
+
+.cart-cta-btn:hover {
+  opacity: 0.9;
+}
+
+.cart-note {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: #86868b;
+  text-align: center;
+}
+
+/* 空购物车 */
+.cart-empty {
+  text-align: center;
+}
+
+.cart-empty h1 {
+  margin: 0 0 0.5rem;
+}
+
+.cart-empty p {
+  color: #6e6e73;
+  margin: 0 0 1.5rem;
+}
+
+/* 窄屏：摘要挪到列表下方 */
+@media (max-width: 820px) {
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-summary {
+    position: static;
+  }
+}
+
+/* ============================================
+   购物车：勾选框 / 规格 / 未勾选样式
+   ============================================ */
+
+.cart-check {
+  width: 18px;
+  height: 18px;
+  accent-color: #1d1d1f;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.cart-specs {
+  display: block;
+  font-size: 0.8rem;
+  color: #86868b;
+  margin: 2px 0 4px;
+}
+
+/* 未勾选的商品：整行半透明，视觉上"暂不结算" */
+.cart-item.is-off {
+  opacity: 0.55;
+}

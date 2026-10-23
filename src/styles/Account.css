@@ -1,0 +1,155 @@
+/* ============================================
+   Account.css — 账户中心页
+   ============================================ */
+
+.acc-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 120px 2rem 80px;
+}
+
+.acc-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin: 0 0 1.5rem;
+}
+
+/* 资料卡 */
+.acc-card {
+  border: 1px solid #e8e8ed;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  padding: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
+/* 用户信息 */
+.acc-card:first-of-type {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.acc-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #1d1d1f;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.acc-info h3 {
+  margin: 0 0 4px;
+  font-size: 1.2rem;
+  color: #1d1d1f;
+}
+
+.acc-muted {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #86868b;
+}
+
+/* 常用入口 */
+.acc-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.acc-nav a {
+  padding: 10px 4px;
+  border-radius: 10px;
+  color: #1d1d1f;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.acc-nav a:hover {
+  background: #f5f5f7;
+}
+
+/* 修改密码 */
+.acc-sec-title {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.acc-label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-size: 0.85rem;
+  color: #6e6e73;
+}
+
+.acc-input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px 12px;
+  border: 1px solid #d2d2d7;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #1d1d1f;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.acc-input:focus {
+  outline: none;
+  border-color: #06c;
+}
+
+.acc-btn {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 12px;
+  background: #1d1d1f;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.acc-btn:hover {
+  opacity: 0.9;
+}
+
+.acc-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.acc-btn-logout {
+  background: #fff;
+  color: #e03131;
+  border: 1px solid #e03131;
+}
+
+.acc-btn-logout:hover {
+  background: #fdeaea;
+  opacity: 1;
+}
+
+.acc-ok {
+  color: #2c7a4b;
+  font-size: 0.9rem;
+}
+
+.acc-err {
+  color: #e03131;
+  font-size: 0.9rem;
+}

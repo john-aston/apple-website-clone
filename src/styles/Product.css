@@ -1,0 +1,700 @@
+/* ============================================
+   src/styles/Product.css — 四个产品页共用样式（Mac / iPad / Watch / iPhone）
+   ------------------------------------------------------------
+   说明：
+   - 四个产品页结构完全一样（hero 大标题 + 滚动展示 + 分类区 + 效用区），
+     所以共用这一份 CSS，每页只通过两个 CSS 变量传入自己的渐变色：
+       --hero-grad   页面顶部渐变
+       --util-grad   底部效用区渐变
+   - 全局共享样式（重置 + 顶栏 + 页脚）在 src/common.css。
+   - 随路由懒加载：只有进入产品页才加载。
+   - 类名以 .p- 开头的是产品滚动展示；.cat- 是分类区；.util- 是效用区。
+   目录：
+   ① Hero 横幅区
+   ② 产品滚动展示（液态玻璃轮播）
+   ③ 分类入口区（分类切换 + 商品卡）
+   ④ 效用展示区（两张场景大图卡）
+   ⑤ 响应式
+   ============================================ */
+
+/* ============================================
+   ① Hero 横幅区（大标题 + 滚动展示）
+   ============================================ */
+
+/* 用 .product-page 前缀限定作用域，避免与 Store 页的 .hero / .viewport / .title
+   同名类互相污染（两个页面的 CSS 会同时留在页面里） */
+.product-page .hero {
+  padding: 148px 2rem 132px;   /* 顶部留白，避开固定导航栏(48px) */
+  background: var(--hero-grad, linear-gradient(135deg, #eaf4ff 0%, #f3ecff 50%, #e9fbf5 100%));
+}
+
+.product-page .viewport {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+.product-page .title h1 {
+  font-size: clamp(3.5rem, 9vw, 5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #1d1d1f;
+}
+
+/* Hero 标语（大标题下方一行小字） */
+.product-page .hero-subtitle {
+  margin: 0.6rem 0 0;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+/* Hero 链接（进一步了解 / 购买，苹果蓝） */
+.product-page .hero-links {
+  display: flex;
+  gap: 1.4rem;
+  margin-top: 1.2rem;
+}
+
+.product-page .hero-link {
+  font-size: 1.2rem;
+  color: #0071e3;
+  text-decoration: none;
+}
+
+.product-page .hero-link:hover {
+  text-decoration: underline;
+}
+
+/* Hero 产品大图（右栏） */
+.product-page .hero-media img {
+  width: 100%;
+  max-width: 480px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+/* ============================================
+   ② 产品滚动展示（液态玻璃小卡片轮播）
+   逻辑在 src/components/ProductShowcase.tsx
+   ============================================ */
+
+/* 外层容器：与 hero 标题区同宽（1100px），顶部留出间距 */
+.p-showcase {
+  max-width: 1100px;
+  margin: 3.5rem auto 0;
+}
+
+/* 滚动轨道：scroll-snap 横向吸附，隐藏原生滚动条 */
+.p-track {
+  display: flex;
+  gap: 1.1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;          /* Firefox */
+  padding-bottom: 1rem;           /* 为卡片阴影留出空间 */
+}
+
+.p-track::-webkit-scrollbar {
+  display: none;                   /* Chrome / Safari */
+}
+
+/* 液态玻璃小卡片 */
+.p-card {
+  flex: 0 0 180px;                 /* 小型卡片固定宽度 */
+  scroll-snap-align: start;
+  padding: 1.1rem 1.1rem 1.2rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;              /* 产品名居中 */
+}
+
+.p-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+/* 卡片内图片区 */
+.p-media {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+}
+
+.p-media img {
+  max-width: 82%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* 产品名（配文） */
+.p-name {
+  margin: 0.8rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #1d1d1f;
+}
+
+/* 细线滚动条：平时淡出，滚动时显示，停止 600ms 后自动消失 */
+.p-scrollbar {
+  position: relative;
+  height: 6px;
+  margin: 0.2rem 0 0.9rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.p-scrollbar.scrolling {
+  opacity: 1;
+}
+
+.p-scrollbar-inner {
+  position: relative;
+  height: 100%;
+}
+
+/* 细轨线 */
+.p-scrollbar-inner::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  transform: translateY(-50%);
+  background: rgba(29, 29, 31, 0.25);
+}
+
+/* 细线滑块：纯黑、直角、硬阴影；宽度与位置由组件实时更新 */
+.p-scrollbar-thumb {
+  position: absolute;
+  left: 0;
+  top: 1px;
+  height: 4px;
+  width: 40px;                     /* 初始宽度，脚本会按进度覆盖 */
+  background: #1d1d1f;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+/* ============================================
+   ③ 分类入口区（核心内容）
+   说明：液态玻璃框里的分类按钮，点击切换下方商品面板；
+   切换时面板淡入上移过渡；商品卡整卡可点击跳转
+   逻辑在 src/components/CategorySection.tsx
+   ============================================ */
+
+/* 区块：全宽浅色渐变底，为液态玻璃提供可模糊的彩色背景 */
+.cat-section {
+  padding: 4rem 0 5rem;
+  background: linear-gradient(135deg, #f3ecff 0%, #eaf4ff 55%, #fdf0f7 100%);
+}
+
+/* 内层容器：与 hero 标题区同宽 */
+.cat-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* 分类按钮：液态玻璃框 + 胶囊按钮 */
+.cat-nav {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.6rem;
+  margin-bottom: 2.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+.cat-btn {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1d1d1f;
+  background: transparent;
+  border: 1px solid transparent;      /* 占位边框，防止悬停/选中时布局抖动 */
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.cat-btn:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.cat-btn.active {
+  background: #1d1d1f;
+  color: #fff;
+}
+
+/* 商品面板：三列网格，仅选中分类显示 */
+.cat-panel {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* 选中面板：淡入 + 轻微上移过渡 */
+.cat-panel.active {
+  display: grid;
+  animation: catFadeIn 0.4s ease;
+}
+
+@keyframes catFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 商品卡：液态玻璃容器（内部“购买”按钮是跳转链接） */
+.cat-card {
+  display: block;
+  padding: 1.5rem 1.5rem 1.8rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+  text-align: center;
+  color: inherit;                     /* 继承正文颜色，避免链接变蓝 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+/* 商品卡图片区 */
+.cat-media {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+}
+
+.cat-media img {
+  max-width: 85%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* 商品卡文案：名称 / 标语 / 详细描述 / 规格 / 价格 / 按钮 */
+.cat-copy h3 {
+  margin: 1.1rem 0 0.3rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #1d1d1f;
+}
+
+.cat-tag {
+  font-size: 0.9rem;
+  color: #6e6e73;
+  margin-bottom: 0.4rem;
+}
+
+.cat-desc {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #6e6e73;
+  margin-bottom: 0.8rem;
+}
+
+/* 规格标签：胶囊小圆点 */
+.cat-specs {
+  margin: 0 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.cat-specs li {
+  font-size: 0.75rem;
+  color: #1d1d1f;
+  background: rgba(29, 29, 31, 0.06);
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+}
+
+.cat-price {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+/* 操作区：左"进一步了解"链接 + 右"购买"按钮，左右对称分布 */
+.cat-cta {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;       /* 左右对称：两元素关于中心对称分布 */
+  gap: 0.5rem;                   /* 缩小两元素间距 */
+}
+
+/* "进一步了解"：蓝色下划线文字链接（不做按钮） */
+.cat-learn-more {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #0071e3;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+}
+
+.cat-learn-more:hover {
+  opacity: 0.7;
+}
+
+/* "购买"：实心蓝色按钮 */
+.cat-buy-btn {
+  display: inline-block;
+  padding: 9px 26px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: #0071e3;
+  border-radius: 980px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.cat-buy-btn:hover {
+  background: #0077ed;
+  transform: translateY(-1px);
+}
+
+/* 禁用的购买按钮：灰色、不可点击（该商品没有真实购买页） */
+.cat-buy-btn.disabled {
+  background: #d2d2d7;
+  cursor: not-allowed;
+  pointer-events: none;   /* 阻止任何点击/跳转 */
+}
+
+.cat-buy-btn.disabled:hover {
+  background: #d2d2d7;
+  transform: none;
+}
+
+
+/* ============================================
+   ④ 效用展示区（分类区下方：两张场景大图卡片）
+   说明：复用 ③ 的 .cat-card / .cat-copy；"进一步了解"用 .p-btn 玻璃按钮
+   逻辑在 src/components/UtilSection.tsx
+   ============================================ */
+
+/* 效用区的"进一步了解"玻璃按钮（与分类区的蓝色链接风格区分开） */
+.p-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1d1d1f;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  cursor: pointer;
+}
+
+.p-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* 效用区的操作区：单按钮居中 */
+.util-section .cat-cta {
+  justify-content: center;
+}
+
+/* 区块：渐变由各页面通过 --util-grad 传入 */
+.util-section {
+  padding: 4rem 0 5rem;
+  background: var(--util-grad, linear-gradient(135deg, #fdf0f7 0%, #f3ecff 50%, #eaf4ff 100%));
+}
+
+/* 区块标题：居中，字号小于 hero 主标题 */
+.util-title {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #1d1d1f;
+}
+
+/* 两卡并排网格：宽度与上方各区块一致 */
+.util-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* 大图卡片：图片满铺贴住玻璃框，顶角随卡片圆弧裁切
+   （双类名提升优先级，覆盖 .cat-card 的同名规则） */
+.cat-card.big-card {
+  overflow: hidden;             /* 让满铺图片被卡片圆角裁切 */
+  padding: 0 0 1.8rem;          /* 去掉顶部与左右内边距，图片贴边 */
+}
+
+/* 大图卡图片区：height:auto + aspect-ratio，高度随列宽自动缩放 */
+.big-card .cat-media {
+  height: auto;
+  aspect-ratio: 3 / 2;          /* 场景图 3:2 */
+  border-radius: 22px 22px 0 0; /* 顶角与卡片同为圆弧 */
+}
+
+.big-card .cat-media img {
+  width: 100%;
+  height: 100%;
+  max-width: none;              /* 解除基类 85% 上限，图片铺满左右 */
+  max-height: none;
+  object-fit: cover;
+}
+
+/* 分类面板里的大图卡：方形 1:1（iPhone 机型图更大更清晰） */
+.cat-panel .big-card .cat-media {
+  aspect-ratio: 1 / 1;
+}
+
+/* 图片下方文案 */
+.util-text {
+  margin: 0.9rem 0 0.2rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+
+/* ============================================
+   ⑤ 响应式：窄屏缩小卡片、商品区单列堆叠
+   ============================================ */
+@media (max-width: 820px) {
+  .p-card {
+    flex-basis: 150px;
+  }
+
+  /* 效用展示区：两卡堆叠为单列 */
+  .util-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* 分类入口区：商品单列 */
+  .cat-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   ⑥ iPhone 专属新区（横滑卡片区 + 隐私大图区）
+   ============================================ */
+
+/* ---- 横滑卡片区：标题 + 可拖动卡片行（区块感与其他区域一致） ---- */
+.ip-slider-section {
+  padding: 4rem 0 5rem;            /* 与效用区相同的内外边距 */
+  background: linear-gradient(135deg, #f0e9ff 0%, #e8f2ff 50%, #eafbf5 100%);
+}
+
+.ip-slider-title {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;           /* 与效用区标题一致的居中布局 */
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #1d1d1f;
+}
+
+/* 卡片轨道：横向滚动 + 吸附，隐藏滚动条 */
+.ip-slider-track {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;          /* Firefox 隐藏滚动条 */
+  padding-bottom: 0.5rem;
+}
+
+.ip-slider-track::-webkit-scrollbar {
+  display: none;                   /* Chrome / Safari 隐藏滚动条 */
+}
+
+/* 卡片：放大到与其他区域卡片同量级 */
+.ip-slider-card {
+  flex: 0 0 320px;                 /* 加宽卡片 */
+  scroll-snap-align: start;
+  background: #fff;                /* 白底卡片，在渐变背景上更突出 */
+  border-radius: 18px;
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ip-slider-card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin: 0 0 0.5rem;
+}
+
+.ip-slider-card-desc {
+  font-size: 1rem;
+  color: #6e6e73;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+/* 卡片下方图片位：固定高度，图片居中 */
+.ip-slider-card-media {
+  width: 100%;
+  height: 160px;                   /* 放大图片位 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;                /* 图片贴底，文字在上方 */
+}
+
+.ip-slider-card-media img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* ---- 隐私大图区：横长方形，左文字 + 右大图（同 iPad Hero 布局） ---- */
+.ip-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* 左文右图两栏 */
+  align-items: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 4rem auto 0;
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f0e9ff 0%, #e8f2ff 50%, #eafbf5 100%);
+}
+
+.ip-banner-copy {
+  max-width: 460px;
+}
+
+/* 主标题：粗、大、紧凑行距，像官网标题一样有冲击力 */
+.ip-banner-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #1d1d1f;
+  margin: 0;
+}
+
+/* 副标题：轻量、灰色、与主标题拉开层次 */
+.ip-banner-subtitle {
+  margin: 1rem 0 0;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: #6e6e73;
+  max-width: 40ch;                 /* 控制行长，阅读更舒适 */
+}
+
+.ip-banner-media img {
+  width: 100%;
+  max-width: 480px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* 窄屏：横滑卡片变窄；隐私区堆叠为上下排列 */
+@media (max-width: 820px) {
+  .ip-slider-card {
+    flex-basis: 240px;
+  }
+
+  .ip-banner {
+    grid-template-columns: 1fr;     /* 单列：文字在上、图在下 */
+  }
+
+  .ip-banner-copy {
+    max-width: 100%;
+  }
+}
+
+/* ============================================
+   ⑦ 商品卡收藏爱心（分类区卡片左上角）
+   ============================================ */
+.cat-media {
+  position: relative;              /* 爱心绝对定位的参照 */
+}
+
+.fav-heart {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  color: #6e6e73;
+  font-size: 15px;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  z-index: 2;
+}
+
+.fav-heart:hover {
+  transform: scale(1.1);
+  color: #c41e1e;
+}
+
+/* 已收藏：红色实心爱心 */
+.fav-heart.active {
+  color: #c41e1e;
+}

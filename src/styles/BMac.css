@@ -1,0 +1,382 @@
+/* ============================================
+   src/styles/BMac.css — B-Mac 购买页样式（对应 BMac.tsx）
+   ------------------------------------------------------------
+   说明：
+   - 页面私有类统一以 bmac- 为前缀。
+   - 全局共享样式（重置 + 顶栏 + 页脚）在 src/common.css。
+   - 已去掉源文件里的全局重置 / 顶栏 / 页脚部分。
+   - 随 /buy-mac 路由懒加载。
+   目录：
+   ① 购买区（两栏：轮播图 + 选项）
+   ② 响应式
+   ============================================ */
+
+/* 按钮继承页面字体（浏览器默认不继承）——限定在购买区内，避免全局泄漏 */
+.bmac-main button {
+  font-family: inherit;
+}
+
+/* ============================================
+   ① 购买区
+   ============================================ */
+
+.bmac-main {
+  min-height: 60vh;              /* 占位高度，购买区填充后按需调整 */
+  padding-top: 48px;             /* 顶部留白，避开固定导航栏(48px) */
+}
+
+/* 左侧购买标题区 */
+.bmac-heading {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* 大标题：与各产品页 hero 主标题一致 */
+.bmac-heading h1 {
+  margin-top: 2rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #1d1d1f;
+}
+
+/* 价格提示小字 */
+.bmac-price-note {
+  margin-top: 1.2rem;
+  font-size: 1.2rem;
+  color: #6e6e73;
+}
+
+/* ---- 两栏布局：左 76% 轮播图 / 右 24% 选项（图宽、栏窄） ---- */
+.bmac-layout {
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 76% 24%;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* ---- 左：大图轮播 ---- */
+
+/* 大图窗口：固定高度，宽度随左列变宽 → 只变宽不变高；
+   图片由 React 渲染、叠放淡入淡出 */
+.bmac-stage {
+  position: relative;
+  height: 530px;
+  border-radius: 22px;
+  background: #f5f5f7;
+  overflow: hidden;
+}
+
+.bmac-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.bmac-slide.active {
+  opacity: 1;
+}
+
+/* 左右切换箭头。z-index 保证位于图片之上 */
+.bmac-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.75);
+  color: #1d1d1f;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.bmac-arrow:hover {
+  background: #fff;
+}
+
+.bmac-prev {
+  left: 14px;
+}
+
+.bmac-next {
+  right: 14px;
+}
+
+/* 指示点 */
+.bmac-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 0.9rem;
+}
+
+/* 单图特写（芯片 / 屏幕）：隐藏轮播箭头与指示点 */
+.bmac-gallery.bmac-single .bmac-arrow,
+.bmac-gallery.bmac-single .bmac-dots {
+  display: none;
+}
+
+.bmac-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #d2d2d7;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.bmac-dot.active {
+  background: #1d1d1f;
+}
+
+/* ---- 左：大图展示区。页面滚动时先随页面移动，滑到导航栏下方后固定住 ---- */
+.bmac-gallery {
+  position: sticky;
+  top: 64px;
+}
+
+/* ---- 右：配置侧边栏（整块玻璃卡片） ---- */
+.bmac-options {
+  padding: 1.8rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+/* 机型组与颜色组：上下间距拉开 */
+.bmac-group {
+  margin-bottom: 2.6rem;
+}
+
+.bmac-group-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+  color: #1d1d1f;
+}
+
+/* 副标题：说明本组选择维度（如“选择尺寸”） */
+.bmac-group-sub {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: #6e6e73;
+}
+
+/* 选项区容器：整个区域用浅灰圆弧矩形包裹，区分不同选择区（如"内存区"与"硬盘区"） */
+.bmac-opt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.6rem;
+  border-radius: 16px;               /* 圆弧矩形 */
+  background: #f5f5f7;               /* 浅灰底，包住整组选项 */
+}
+
+/* 选择按钮：区域内按钮无各自底色，靠选中态区分 */
+.bmac-opt-btn {
+  display: flex;
+  justify-content: space-between;   /* 名称靠左、价格靠右 */
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 12px;              /* 按钮自身小圆角 */
+  background: transparent;          /* 透明，不抢区域底色 */
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.bmac-opt-btn:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.bmac-opt-btn.active {
+  background: #fff;
+  border-color: #1d1d1f;
+  box-shadow: 0 0 0 1px #1d1d1f;
+}
+
+.bmac-opt-name {
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.bmac-opt-price {
+  font-size: 0.9rem;
+  color: #6e6e73;
+  white-space: nowrap;
+  margin-left: auto;                /* 价格推到最右 */
+}
+
+/* 颜色：圆形小按钮，玻璃质感（顶部内反光模拟玻璃高光，保持色块颜色不变） */
+.bmac-color-list {
+  display: flex;
+  gap: 16px;
+}
+
+.bmac-color-btn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.45), 0 2px 6px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.bmac-color-btn:hover {
+  transform: scale(1.1);
+}
+
+.bmac-color-btn.active {
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.45), 0 0 0 3px #fff, 0 0 0 5px #1d1d1f;
+}
+
+
+/* ============================================
+   ② 响应式：窄屏两栏堆叠为单列
+   ============================================ */
+@media (max-width: 820px) {
+  .bmac-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* 窄屏单列：图片容器恢复宽高比，随屏宽自适应 */
+  .bmac-stage {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  /* 窄屏单列：解除展示区固定，随页面自然滚动 */
+  .bmac-gallery {
+    position: static;
+  }
+}
+
+/* ============================================
+   购买页：库存状态 + 加入购物袋
+   ============================================ */
+
+.bmac-stock {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 0.9rem;
+  color: #2c7a4b;
+}
+
+.bmac-stock.out {
+  color: #e03131;
+}
+
+.bmac-add-btn {
+  width: 100%;
+  padding: 14px 0;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 14px;
+  background: #1d1d1f;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.bmac-add-btn:hover {
+  opacity: 0.9;
+}
+
+.bmac-add-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ========== 配置定制（内存 / 硬盘 / 充电器） ========== */
+
+/* 子项小标签：内存 / 硬盘 / 电源适配器 */
+.bmac-config-label {
+  margin: 1rem 0 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+/* 充电器卡片：当前配置突出展示（浅蓝底 + 蓝色边框） */
+.bmac-charger {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid #b8d4f0;
+  border-radius: 10px;
+  background: #eaf4ff;
+}
+
+/* "当前"小字标签 */
+.bmac-charger-current {
+  font-size: 0.8rem;
+  color: #0071e3;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* 充电器名称 */
+.bmac-charger-name {
+  font-size: 0.95rem;
+  color: #1d1d1f;
+  font-weight: 500;
+}
+
+/* 配置定制头部：标题 + "编辑/收起"按钮同行 */
+.bmac-config-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.bmac-config-head .bmac-group-title {
+  margin: 0;
+}
+
+/* "编辑/收起"按钮：蓝色圆角小按钮 */
+.bmac-config-toggle {
+  flex-shrink: 0;
+  padding: 6px 18px;
+  border: none;
+  border-radius: 980px;
+  background: #0071e3;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.bmac-config-toggle:hover {
+  background: #0077ed;
+}

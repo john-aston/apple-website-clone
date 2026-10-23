@@ -1,0 +1,173 @@
+/* ============================================
+   src/styles/Login.css — 登录/注册页样式（React 版）
+   ------------------------------------------------------------
+   说明：
+   - 原来 body / * 的全局规则已收窄为 .login-page 容器作用域，
+     避免 SPA 里这一页的样式污染其他页面。
+   - 顶部导航栏样式由全局 src/common.css 提供（Header 是共享组件），
+     本文件不再重复，登录页顶栏与全站保持一致。
+   - 本文件随 /login 路由懒加载，只在这一页加载生效。
+   目录：
+   ① 页面容器 .login-page（原 body 的居中 + 大理石背景）
+   ② 登录表单 Login
+   ============================================ */
+
+/* ============================================
+   ① 页面容器 .login-page（原 body 的居中 + 大理石背景）
+   ============================================ */
+
+/* 容器：全屏高、内容水平垂直居中、大理石纹理背景
+   （大理石由多层柔和的径向渐变叠加模拟，无需图片资源） */
+.login-page {
+  font-family: 'Roboto', 'Helvetica', Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f7;
+  background-image:
+    radial-gradient(ellipse 60% 45% at 20% 25%, rgba(120, 120, 128, 0.14), transparent 70%),
+    radial-gradient(ellipse 45% 35% at 85% 20%, rgba(130, 130, 138, 0.12), transparent 65%),
+    radial-gradient(ellipse 50% 40% at 75% 80%, rgba(120, 120, 128, 0.13), transparent 68%),
+    radial-gradient(ellipse 40% 30% at 25% 85%, rgba(135, 135, 142, 0.12), transparent 62%),
+    radial-gradient(ellipse 30% 22% at 55% 45%, rgba(110, 110, 118, 0.1), transparent 60%),
+    radial-gradient(ellipse 16% 12% at 35% 55%, rgba(95, 95, 103, 0.12), transparent 55%),
+    radial-gradient(ellipse 14% 10% at 70% 40%, rgba(105, 105, 112, 0.12), transparent 55%);
+}
+
+/* 原全局 * 重置：作用域收窄到登录页内部，不影响全站 */
+.login-page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+
+/* 去掉列表默认符号与链接下划线（仅在登录页内生效） */
+.login-page ul,
+.login-page ol,
+.login-page li {
+  list-style: none;
+}
+
+.login-page a {
+  text-decoration: none;
+}
+
+
+/* ============================================
+   ② 登录表单 Login
+   ============================================ */
+
+/* 表单卡：白色液态玻璃面板，与全站卡片风格一致 */
+.login-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  padding: 50px 10px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+/* 表单：纵向排列（登录 / 注册共用一张卡） */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* 表单标题 */
+.login-card h1 {
+  font-size: 2.5rem;
+  color: #1d1d1f;
+  margin: 0 0 50px;
+}
+
+/* 输入框容器：白色圆角底框 + 右侧图标 */
+.login-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  height: 55px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(29, 29, 31, 0.2);
+  border-radius: 40px;
+}
+
+/* 输入框本体：透明无边框，白色文字 */
+.login-field input {
+  background-color: transparent;
+  font-size: 1.2rem;
+  color: #1d1d1f;
+  padding: 5px 25px;
+}
+
+.login-field input::placeholder {
+  font-size: 1.2rem;
+  color: #6e6e73;
+}
+
+/* 右侧图标 */
+.login-field i {
+  font-size: 1.2rem;
+  color: #6e6e73;
+  padding-right: 25px;
+}
+
+/* 记住我 / 忘记密码 行 */
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin-bottom: 25px;
+}
+
+.login-options p,
+.login-options a {
+  font-size: 1.2rem;
+  color: #1d1d1f;
+}
+
+/* 登录按钮 */
+.login-btn {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  height: 55px;
+  width: 90%;
+  margin-bottom: 25px;
+  border-radius: 50px;
+  color: #fff;
+  background-color: #1d1d1f;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #0071e3;
+}
+
+/* 注册提示行 */
+.login-register {
+  font-size: 1.2rem;
+  color: #1d1d1f;
+  margin-bottom: 25px;
+}
+
+.login-register a {
+  font-weight: 500;
+}
+
+.login-register:hover {
+  cursor: pointer;
+}

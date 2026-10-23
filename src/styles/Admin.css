@@ -1,0 +1,230 @@
+/* ========== 后台管理页样式 ========== */
+.admin-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', sans-serif;
+  color: #1d1d1f;
+}
+
+.admin-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 20px;
+}
+
+/* 顶部操作区 */
+.admin-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-tabs button {
+  padding: 8px 18px;
+  border: 1px solid #d2d2d7;
+  border-radius: 980px;
+  background: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  color: #1d1d1f;
+}
+
+.admin-tabs button.active {
+  background: #0071e3;
+  border-color: #0071e3;
+  color: #fff;
+}
+
+.admin-page-select {
+  padding: 8px 12px;
+  border: 1px solid #d2d2d7;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+}
+
+/* 提示消息 */
+.admin-msg {
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.admin-msg.ok { background: #e8f7ee; color: #1d7a3d; }
+.admin-msg.err { background: #fdecec; color: #c41e1e; }
+
+/* 行工具区 */
+.admin-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.admin-hint { margin: 0; font-size: 14px; color: #6e6e73; }
+
+/* 按钮 */
+.admin-btn {
+  padding: 7px 14px;
+  border: 1px solid #d2d2d7;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  color: #1d1d1f;
+  transition: background 0.15s;
+}
+
+.admin-btn:hover:not(:disabled) { background: #f5f5f7; }
+.admin-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.admin-btn.primary { background: #0071e3; border-color: #0071e3; color: #fff; }
+.admin-btn.primary:hover:not(:disabled) { background: #0077ed; }
+.admin-btn.danger { color: #c41e1e; border-color: #f0c4c4; }
+.admin-btn.danger:hover:not(:disabled) { background: #fdecec; }
+.admin-btn.sm { padding: 4px 10px; font-size: 12px; }
+
+/* 表格 */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #e8e8ed;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.admin-table th {
+  background: #f5f5f7;
+  text-align: left;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #6e6e73;
+}
+
+.admin-table td {
+  padding: 10px 14px;
+  border-top: 1px solid #f0f0f3;
+  vertical-align: middle;
+}
+
+.admin-table tr.is-off { opacity: 0.5; }
+
+.admin-thumb {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #f5f5f7;
+}
+
+.admin-status {
+  padding: 3px 10px;
+  border-radius: 980px;
+  font-size: 12px;
+}
+
+.admin-status.on { background: #e8f7ee; color: #1d7a3d; }
+.admin-status.off { background: #fdecec; color: #c41e1e; }
+
+.admin-actions { white-space: nowrap; }
+.admin-actions .admin-btn { margin-right: 6px; }
+
+.admin-empty { color: #86868b; text-align: center; padding: 30px 0; font-size: 14px; }
+
+/* 输入框 */
+.admin-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d2d2d7;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.admin-row .admin-input { width: auto; flex: 1; max-width: 280px; }
+
+.admin-label {
+  display: block;
+  font-size: 13px;
+  color: #6e6e73;
+  margin-bottom: 10px;
+}
+
+.admin-label .admin-input { margin-top: 5px; }
+
+/* 弹窗 */
+.admin-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.admin-form {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.admin-form h3 { margin: 0 0 16px; font-size: 18px; }
+
+.admin-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+/* 订单卡片 */
+.admin-order-card {
+  border: 1px solid #e8e8ed;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  background: #fff;
+  font-size: 14px;
+}
+
+.admin-order-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.admin-order-head select {
+  padding: 4px 8px;
+  border: 1px solid #d2d2d7;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.admin-order-items { margin: 0 0 8px; padding-left: 18px; color: #6e6e73; }
+.admin-order-total { margin: 0; color: #1d1d1f; }

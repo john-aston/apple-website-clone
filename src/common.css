@@ -1,0 +1,362 @@
+/* ============================================
+   全局重置 & 基础样式（Reset & Base）
+   ============================================ */
+
+/* 统一盒模型计算方式 */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* 去掉列表默认样式（圆点/数字） */
+ul,
+li,
+ol {
+    list-style: none;
+}
+
+/* 去掉链接下划线 */
+a {
+    text-decoration: none;
+}
+
+/* 页面主体：水平居中、字体、白底 */
+body,
+main {
+    margin: 0 auto;
+    font-family: 'Roboto', 'Helvetica', Arial, sans-serif;
+    background-color: rgb(255, 255, 255);
+}
+
+
+/* ============================================
+   1. 顶部导航栏 Header
+   ============================================ */
+
+header {
+    position: fixed;          /* 固定在页面顶部 */
+    top: 0;
+    width: 100%;
+    height: 48px;
+    z-index: 10;              /* 保证浮在其他内容上方 */
+    background: rgba(255, 255, 255, 0.85);   /* 毛玻璃：较高不透明度，与页面形成对比 */
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* 内容容器：限宽居中，作为左右图标的定位基准 */
+.header-wrapper {
+    position: relative;
+    max-width: 1100px;
+    height: 48px;
+    margin: 0 auto;
+}
+
+/* 导航列表：链接组整体居中，间距放宽（模仿苹果官网）。
+   注意：ul 有浏览器默认的 margin / list-style，这里要显式清零，
+   不能依赖页面 CSS（之前靠 Home.css 的裸 ul 规则兜底，会互相牵扯） */
+.header-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 44px;
+    height: 48px;
+    margin: 0;
+    padding: 0 24px;
+    list-style: none;
+}
+
+/* 每个导航项：自然宽度，垂直居中 */
+.header-list li {
+    display: flex;
+    align-items: center;
+    height: 48px;
+}
+
+/* 导航链接：小号深色文字，悬停变浅灰 */
+.header-list li a {
+    color: #1d1d1f;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    transition: color 0.25s ease;
+}
+
+.header-list li a:hover {
+    color: #6e6e73;
+}
+
+/* Apple 标志：白色原图反相为深色，固定于容器左侧 */
+.logo {
+    width: 24px;
+    display: block;
+    filter: invert(1);
+}
+
+.header-list .apple-header {
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 搜索图标：固定于容器右侧，随毛玻璃栏一同显示 */
+.header-list .fa-searchs {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header-list .fa-searchs a {
+    font-size: 17px;
+}
+
+/* 移动端菜单按钮：默认隐藏 */
+.menu-logo {
+    visibility: hidden;
+    position: absolute;
+}
+
+
+
+/* ============================================
+   2. 页脚 Footer
+   ============================================ */
+
+footer {
+    background-color: #f5f5f7;
+    padding: 20px 0 30px 0;
+    color: #1d1d1f;
+    font-family: "SF Pro Display", "Roboto", Arial, sans-serif;
+}
+
+/* 3.1 脚注免责声明 */
+.foot-notes {
+    width: 70%;
+    margin: 0 auto 20px auto;
+}
+
+.foot-notes ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.foot-notes ul li {
+    color: #86868b;
+    font-size: 11px;
+    line-height: 1.6;
+    margin: 4px 0;
+    text-align: left;
+    height: auto;       /* 覆盖全局 li 的 770px 高度 */
+}
+
+/* 分割线 */
+hr {
+    border: 0;
+    border-top: 1px solid #d2d2d7;
+    width: 70%;
+    margin: 15px auto;
+}
+
+/* 3.2 链接列容器（多列横向排列） */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 0 auto;
+    gap: 30px;
+    padding: 10px 0;
+}
+
+/* 每个链接列 */
+.footer-list {
+    flex: 1;
+    min-width: 160px;
+}
+
+.footer-list h3 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+}
+
+.footer-list p {
+    margin: 5px 0;
+}
+
+.footer-list p a {
+    font-size: 11px;
+    color: #424245;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-list p a:hover {
+    color: #1d1d1f;
+    text-decoration: underline;
+}
+
+/* 3.3 底部版权信息 */
+.footer-bottom {
+    width: 70%;
+    margin: 15px auto 0 auto;
+    padding-top: 15px;
+    border-top: 1px solid #d2d2d7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer-bottom .copyright {
+    font-size: 11px;
+    color: #86868b;
+}
+
+.footer-bottom .footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-bottom .footer-links a {
+    font-size: 11px;
+    color: #424245;
+    text-decoration: none;
+}
+
+.footer-bottom .footer-links a:hover {
+    text-decoration: underline;
+    color: #1d1d1f;
+}
+
+.footer-bottom .footer-links span {
+    color: #d2d2d7;
+}
+
+/* 3.4 国家/地区选择 */
+.footer-country {
+    width: 70%;
+    margin: 10px auto 0 auto;
+    text-align: right;
+    font-size: 11px;
+    color: #86868b;
+}
+
+.footer-country a {
+    color: #424245;
+    text-decoration: none;
+}
+
+.footer-country a:hover {
+    text-decoration: underline;
+    color: #1d1d1f;
+}
+
+
+/* ============================================
+   3. 页面数据三态：加载中 / 加载失败
+   （PageStatus 组件用，所有走接口的页面共用）
+   ============================================ */
+
+.page-status {
+    padding: 200px 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6e6e73;
+}
+
+.page-status button {
+    margin-top: 1.2rem;
+    padding: 10px 22px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #1d1d1f;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.page-status button:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateY(-1px);
+}
+
+
+/* ============================================
+   4. 导航栏购物袋图标 + 角标
+   ============================================ */
+
+/* 角标定位基准 */
+.cart-wrap {
+    position: relative;
+}
+
+/* 购物袋图标：链接尺寸与文字一致，垂直居中 */
+.cart-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 红色角标：显示购物袋里共几件 */
+.cart-badge {
+    position: absolute;
+    top: 2px;
+    right: -14px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 999px;
+    background: #e03131;
+    color: #fff;
+    font-size: 11px;
+    line-height: 16px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ============================================
+   商品卡片上的收藏爱心
+   ============================================ */
+.fav-heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  color: #86868b;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.fav-heart:hover {
+  transform: scale(1.1);
+}
+
+.fav-heart.active {
+  color: #e03131;
+}
+
+.cat-media {
+  position: relative;
+}
+
